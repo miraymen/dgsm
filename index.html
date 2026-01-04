@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Animated 3DGS Avatars in Diverse Scenes with Consistent Lighting and Shadows">
+  <meta name="keywords" content="Gaussian Splatting, 3DGS, Shadow Maps, Relighting, Digital Humans, Neural Rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animated 3DGS Avatars with Consistent Lighting and Shadows</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .institution-logo {
+      height: 50px;
+      margin: 0 15px;
+      vertical-align: middle;
+    }
+    .institution-logos {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .method-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .result-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .contribution-box {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .contribution-box h4 {
+      color: #363636;
+      margin-bottom: 10px;
+    }
+    .image-caption {
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .section-divider {
+      border-top: 1px solid #dbdbdb;
+      margin: 40px 0;
+    }
+    .hero.is-light {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<!-- Title and Authors Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Animated 3DGS Avatars in Diverse Scenes with Consistent Lighting and Shadows</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://miraymen.github.io">Aymen Mir</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.robots.ox.ac.uk/~alp/">Riza Alp Guler</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="">Jian Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html">Gerard Pons-Moll</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Bing Zhou</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 10px;">
+            <span class="author-block"><sup>1</sup>Tübingen AI Center, University of Tübingen</span>
+            <span class="author-block"><sup>2</sup>Snap Inc.</span>
+          </div>
+
+          <!-- Institution Logos -->
+          <div class="institution-logos">
+            <img src="https://www.the3rs.uni-tuebingen.de/wp-content/uploads/2021/10/UniversitaetTuebingen_WortBildMarke.png" alt="University of Tübingen" class="institution-logo" style="height: 50px;">
+            <img src="https://erp.adgully.com/artical_image/6f51b78d56ccc504b5e2509f3720db44.jpeg" alt="Snap Inc." class="institution-logo" style="height: 50px;">
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 20px;">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser-test3.png" alt="Teaser" class="method-image">
+      <p class="image-caption">
+        Our method renders consistent lighting and soft shadows for animated 3DGS avatars interacting with 3DGS scenes.
+        Avatars both cast shadows onto the scene and receive scene illumination via SH-based relighting,
+        yielding coherent compositions across diverse environments.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a method for <strong>consistent lighting and shadows</strong> when animated 3D Gaussian Splatting (3DGS) avatars interact with 3DGS scenes or with dynamic objects inserted into otherwise static scenes.
+          </p>
+          <p>
+            Our key contribution is <strong>Deep Gaussian Shadow Maps (DGSM)</strong>—a modern analogue of the classical shadow mapping algorithm tailored to the volumetric 3DGS representation. Building on the classic deep-shadow mapping idea, we show that 3DGS admits closed-form light accumulation along light rays, enabling volumetric shadow computation without meshing.
+          </p>
+          <p>
+            For each estimated light, we tabulate transmittance over concentric radial shells and store them in octahedral atlases, which modern GPUs can sample in real-time per query to attenuate affected scene Gaussians and thus cast and receive shadows consistently.
+          </p>
+          <p>
+            To relight moving avatars, we approximate the local environment illumination with HDRI probes represented in a spherical-harmonic (SH) basis and apply a fast per-Gaussian radiance transfer, avoiding explicit BRDF estimation or offline optimization.
+          </p>
+          <p>
+            We demonstrate environment-consistent lighting for avatars from <em>AvatarX</em> and <em>ActorsHQ</em>, composited into <em>ScanNet++</em>, <em>DL3DV</em>, and <em>SuperSplat</em> scenes, and show interactions with inserted objects. Across single and multi-avatar settings, DGSM and SH relighting operate fully in the volumetric 3DGS representation, yielding coherent shadows and relighting while avoiding meshing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Contributions Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Key Contributions</h2>
+
+        <div class="contribution-box">
+          <h4><i class="fas fa-sun"></i> Deep Gaussian Shadow Maps (DGSM)</h4>
+          <p>A volumetric deep-shadow formulation for Gaussian splats, with closed-form light accumulation and efficient octahedral-atlas storage for fast GPU sampling. Unlike classical shadow maps designed for meshes, DGSM operates directly on the continuous volumetric Gaussian representation.</p>
+        </div>
+
+        <div class="contribution-box">
+          <h4><i class="fas fa-lightbulb"></i> Fast Avatar Relighting via SH HDRI Probes</h4>
+          <p>A per-frame, per-Gaussian spherical harmonic transfer that approximates local environment lighting without explicit BRDFs or meshing. This enables dynamic avatar motion and scene edits without offline optimization.</p>
+        </div>
+
+        <div class="contribution-box">
+          <h4><i class="fas fa-users"></i> Coherent Lighting for Dynamic 3DGS Scenes</h4>
+          <p>An integrated pipeline that enables avatars and inserted objects to cast shadows and exhibit scene-matched lighting, validated across ScanNet++, DL3DV, and SuperSplat scenes with AvatarX/ActorsHQ avatars.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method Overview Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+
+        <img src="./static/images/meth_fig_new9.png" alt="DGSM Method Overview" class="method-image">
+
+        <div class="content has-text-justified" style="margin-top: 20px;">
+          <p class="image-caption">
+            <strong>Deep Gaussian Shadow Maps:</strong> For concentric spheres radiating out from a light source,
+            we build DGSMs by computing the light absorption by inserted Avatar/Object Gaussians at each radial
+            distance from the light source. An octahedral map takes a 3D unit vector <strong>d</strong> and maps
+            it to a 2D location in the atlas. Each absorption value is mapped to its own 2D octahedral map.
+            The radial distances are chunked into K discrete bins along the radial direction and stored in
+            octahedral atlases, creating a volumetric shadow map that can be sampled to cast shadows on Scene Gaussians.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Details Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">How It Works</h2>
+
+        <div class="content has-text-justified">
+          <h4>1. Light Source Estimation</h4>
+          <p>
+            We estimate a compact set of point light sources from the Gaussian scene representation.
+            Using spherical-harmonic (SH) coefficients from multiple viewpoints near the character,
+            we derive photometric cues—mean/max luminance, angular-stability, and DC-dominance—to
+            identify dominant light sources via greedy distance-based NMS suppression.
+          </p>
+
+          <h4>2. Volumetric Visibility in Closed Form</h4>
+          <p>
+            We model the light absorption field as a Gaussian mixture with an explicit relationship
+            between the absorption coefficient and Gaussian opacity. The optical depth factorizes
+            per Gaussian, allowing us to compute transmittance (visibility) using error functions
+            in closed form—without meshing or voxelization.
+          </p>
+
+          <h4>3. Octahedral Atlas Storage</h4>
+          <p>
+            Directions on the sphere are encoded with an octahedral atlas, turning the spherical
+            function into a single contiguous 2D texture. This enables precomputation, compact storage,
+            and fast GPU sampling. Distance is discretized into K radial bins, creating a 3D table
+            that can be efficiently sampled via trilinear interpolation.
+          </p>
+
+          <h4>4. HDRI-based Relighting</h4>
+          <p>
+            We construct an approximate environment by rendering the 3DGS scene on cube faces at the
+            avatar location, then fit SH coefficients via weighted least-squares. For each Gaussian,
+            we perform per-channel lighting transfer using a cosine lobe, yielding efficient
+            image-based lighting consistent with the estimated environment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Relighting Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Relighting Results</h2>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <img src="./static/images/ligh_result.png" alt="Relighting Results" class="method-image">
+        <p class="image-caption" style="margin-top: 15px;">
+          <strong>Environment-Consistent Relighting:</strong> Our SH-based relighting approach modulates
+          avatar appearance to match the ambient characteristics of surrounding scenes, producing
+          visually coherent results without explicit BRDF estimation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <img src="./static/images/results-fig7.png" alt="Results" class="method-image">
+      </div>
+    </div>
+
+    <div class="content has-text-centered" style="margin-top: 20px;">
+      <p>
+        <strong>Qualitative Results:</strong> Our method produces consistent shadows and scene-matched
+        lighting for animated avatars from AvatarX and ActorsHQ, composited into diverse 3DGS scenes
+        from ScanNet++, DL3DV, and SuperSplat.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Ablations Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Ablation Studies</h2>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <img src="./static/images/fig4-abl2.png" alt="Ablation Studies" class="method-image">
+        <p class="image-caption" style="margin-top: 15px;">
+          <strong>Ablation Studies:</strong> We evaluate various shadow map parameters including
+          opacity-to-absorption mapping strategies, octahedral maps vs cubemaps, and sampling methods
+          (Monte Carlo vs center sampling).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conclusion Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>
+            We have presented a lighting-and-shadowing framework that operates directly in the continuous
+            Gaussian domain to render view-consistent shadows and scene-matched relighting for animated
+            avatars and inserted objects in 3DGS scenes.
+          </p>
+          <p>
+            Our Deep Gaussian Shadow Maps (DGSM), by deriving a closed-form volumetric transmittance for
+            Gaussian splats and storing light-space accumulation in a compact octahedral atlas, enables
+            efficient, dynamic shadow queries on modern GPUs.
+          </p>
+          <p>
+            <strong>Limitations:</strong> Our method assumes static scenes around lights and depends on
+            light-estimation quality. The single-scattering approximation may miss strong interreflections,
+            caustics, or highly specular/anisotropic effects.
+          </p>
+          <p>
+            <strong>Future Work:</strong> We see promising directions in handling dynamic illumination and
+            deforming environments, integrating learned global illumination within 3DGS, extending to
+            participating media and glossy materials, and exploring end-to-end differentiable training
+            that unifies light estimation, DGSM construction, and avatar appearance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX Section -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{mir2025animated3dgs,
+  title={Animated 3DGS Avatars in Diverse Scenes with Consistent Lighting and Shadows},
+  author={Mir, Aymen and Guler, Riza Alp and Wang, Jian and Pons-Moll, Gerard and Zhou, Bing},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
